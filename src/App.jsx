@@ -26,6 +26,7 @@ function App() {
 
     const formHandler=(e)=>{
         e.preventDefault();
+        alert("successfully submited!")
         console.log(initial)
     }
 
@@ -38,12 +39,7 @@ function App() {
         else
         e.target.style.color="black"
       }
-
-
-
-
-
-        initial = { ...initial, [e.target.name]: e.target.value };
+    initial = { ...initial, [e.target.name]: e.target.value };
         console.log(e.target.value)
     }
     return ( <>
@@ -55,8 +51,8 @@ function App() {
         <div className="col">
             <p>Name of the Applicant</p>
             <div className="row w100">
-                <div className="col w50 col1"><input required onChange={changeHandler} type="text" name="afname" placeholder='First'/></div>
-                <div className="col w50 col2"><input required onChange={changeHandler} type="text" name="alname" placeholder='Last'/></div>
+                <div className="col w50 col1"><input required minLength="3" maxLength="20" onChange={changeHandler} type="text" name="afname" placeholder='First'/></div>
+                <div className="col w50 col2"><input required minLength="3" maxLength="20" onChange={changeHandler} type="text" name="alname" placeholder='Last'/></div>
                 
             </div>
 
@@ -71,57 +67,57 @@ function App() {
        
             <p>Details of Siblings</p>
            <div className="row w100">
-           <textarea name="detailsSibling" id=""  required onChange={changeHandler}  cols="30" placeholder='Enter Details' rows="4" className="w100"></textarea>
+           <textarea name="detailsSibling" id="" minLength="3" maxLength="20" required onChange={changeHandler}  cols="30" placeholder='Enter Details' rows="4" className="w100"></textarea>
        
            </div>
             <h2 style={{margin:"2% 0%"}}>Parents Infromation</h2>
 
             <p>Fathers Name</p>
             <div className="row w100">
-                <div className="col w50 col1"><input required onChange={changeHandler} type="text" name="ffname" placeholder='First'/></div>
-                <div className="col w50 col2"><input required onChange={changeHandler} type="text" name="flname" placeholder='Last'/></div>
+                <div className="col w50 col1"><input minLength="3" maxLength="20" required onChange={changeHandler} type="text" name="ffname" placeholder='First'/></div>
+                <div className="col w50 col2"><input minLength="3" maxLength="20" required onChange={changeHandler} type="text" name="flname" placeholder='Last'/></div>
             </div>
         
             <p>Fathers Qualification</p>
             <div className="row w100">
-            <input required onChange={changeHandler} type="text"  className='w100' name='fQualification' placeholder='Enter Qualification' />
+            <input required onChange={changeHandler} type="text" minLength="3" maxLength="20" className='w100' name='fQualification' placeholder='Enter Qualification' />
             </div>
 
             <div className="row w100">
                 <div className="col w50 col1">
                     <p>Phone</p>
-                    <input required onChange={changeHandler} type="text" name="fmob" placeholder='## #### ####' />
+                    <input required onChange={changeHandler} type="" minLength="10" maxLength="10" name="fmob" placeholder='## #### ####' />
                 </div>
                 <div className="col w50 col2">
                     <p>Email</p>
-                    <input required onChange={changeHandler} name="femail" type="text"  />
+                    <input required onChange={changeHandler} name="femail" type="email"  />
                 </div>
             </div>
 
             <p>Father Occupation</p>
-            <div className="row w100"> <input required onChange={changeHandler} type="text" name="fOccupation" placeholder='Occupation' className='w100' /></div>
+            <div className="row w100"> <input required minLength="3" maxLength="20" onChange={changeHandler} type="text" name="fOccupation" placeholder='Occupation' className='w100' /></div>
           
             
             <p>Mothers Name</p>
             <div className="row w100">
                 <div className="col w50 col1">
-                <input required onChange={changeHandler} type="text" name="mfname" placeholder='First name'/>
+                <input required onChange={changeHandler} type="text" minLength="3" maxLength="20" name="mfname" placeholder='First name'/>
                 </div>
                 <div className="col w50 col2">
-                <input required onChange={changeHandler} type="text" name="mlname" placeholder='Last name'/>
+                <input required onChange={changeHandler} type="text" minLength="3" maxLength="20" name="mlname" placeholder='Last name'/>
                 </div>
             </div>
 
                    
             <p>Mother's Qualification</p>
             <div className="row w100">
-            <input required onChange={changeHandler} type="text" placeholder='Mothers Qualification' name="mQualification" className='w100' />
+            <input required onChange={changeHandler} type="text" minLength="3" maxLength="20" placeholder='Mothers Qualification' name="mQualification" className='w100' />
             </div>
 
             <div className="row w100">
                 <div className="col w50 col1">
                     <p>Phone</p>
-                    <input required onChange={changeHandler} type="text" name="mmob" placeholder='## #### ####' />
+                    <input required onChange={changeHandler} type="text" minLength="10" maxLength="10" name="mmob" placeholder='## #### ####' />
                 </div>
                 <div className="col w50 col2">
                     <p>Email</p>
@@ -131,10 +127,10 @@ function App() {
             </div>
 
             <p>Mothers Occupation</p>
-            <div className="row w100"><input required onChange={changeHandler} type="text"  name="mOccupation" placeholder='Enter Qualification' className='w100' /></div>
+            <div className="row w100"><input required onChange={changeHandler} type="text" minLength="3" maxLength="20" name="mOccupation" placeholder='Enter Qualification' className='w100' /></div>
 
             <p>Address</p>
-            <div className="row w100"><input required onChange={changeHandler} type="text" name="address" className='w100' placeholder='Enter Address'/></div>
+            <div className="row w100"><input required onChange={changeHandler} type="text" name="address" minLength="10" maxLength="30" className='w100' placeholder='Enter Address'/></div>
             
             <div className="row w100 f-end">
                 <button className="btn btn-info " type="submit">Submit</button>
